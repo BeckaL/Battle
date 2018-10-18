@@ -1,4 +1,3 @@
-
 feature "site" do
 
   scenario "another page" do
@@ -7,11 +6,26 @@ feature "site" do
   end
 
   scenario "allows users to enter names" do
-    visit '/'
-    fill_in('Enter player 1', with: 'Becka')
-    fill_in('Enter player 2', with: 'Oli')
-    click_on('Submit names')
+    sign_in_and_play
     expect(page).to have_content "Welcome, Becka and Oli"
+  end
+
+  scenario "displays player 2's hit points" do
+    sign_in_and_play
+    expect(page).to have_content "Oli points: 100"
+  end
+
+  scenario 'gets confirmation of attack' do
+    sign_in_and_play
+    click_link('Attack')
+    expect(page).to have_content "Becka attacked Oli"
+  end
+
+  scenario 'attack reduces player 2 HP by 10' do
+    sign_in_and_play
+    click_link('Attack')
+    visit '/play'
+    expect(page).to have_content "Oli points: 90"
   end
 
 end

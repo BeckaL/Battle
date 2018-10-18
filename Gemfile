@@ -9,5 +9,6 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 gem "capybara"
 gem "rack"
 gem "rspec"
-gem "shotgun"
+# gem "shotgun"
 gem "sinatra"
+gem "capybara-screenshot"
