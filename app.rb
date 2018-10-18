@@ -2,21 +2,20 @@ require 'sinatra/base'
 
 class Battle < Sinatra::Base
 
-  get "/" do
-    "Infrastructure working"
-  end
+  enable :sessions
 
   get "/Becka" do
     "Hi Becka"
   end
 
-  get "/names" do
+  get "/" do
     erb(:index)
   end
 
-  # post "/names" do
-  #
-  # end
+  post "/names" do
+    @player_1, @player_2  = params[:player_1], params[:player_2]
+    erb(:play)
+  end
 
   run! if app_file == $0
 
