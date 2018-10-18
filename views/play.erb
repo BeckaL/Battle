@@ -1,11 +1,11 @@
-<h1> Welcome, <%= @player_1_name %> and <%= @player_2_name %>  </h1>
+<h1> Welcome, <%= @game.player_1.name %> and <%= @game.player_2.name %>  </h1>
 <body>
   < <%= $attack_notification %> >
   <a href="/attack">Attack</a>
   <!-- <p>How many points</p> -->
 
 <div>
-<%= @player_1_name %> points: <%= @player_1_score %>
-<%= @player_2_name %> points: <%= @player_2_score %>
+<%= @game.player_1.name %> points: <%= @game.player_1.points %>
+<%= @game.player_2.name %> points: <%= @game.player_2.points %>
 </div>
 </body>
