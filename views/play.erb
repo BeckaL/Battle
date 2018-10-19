@@ -1,5 +1,6 @@
 <h1> Welcome, <%= @game.player_1.name %> and <%= @game.player_2.name %>  </h1>
 <body>
+  < <%= @game.current_player.name %>'s turn>
   < <%= $attack_notification %> >
   <a href="/attack">Attack</a>
   <!-- <p>How many points</p> -->
@@ -8,4 +9,6 @@
 <%= @game.player_1.name %> points: <%= @game.player_1.points %>
 <%= @game.player_2.name %> points: <%= @game.player_2.points %>
 </div>
+
+<%= @game.losing_statement %>
 </body>
